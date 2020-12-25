@@ -9,7 +9,10 @@ spring:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
-
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8080
 feign:
   client:
     config:
@@ -19,7 +22,9 @@ feign:
   compression:
     request:
       enabled: true   # 开启对请求的压缩
-      mime-types: text/xml, application/xml
+      mime-types: text/xml, application/json
       min-request-size: 2048   # 指定启用压缩的最小文件大小
     response:
       enabled: true
+  sentinel:
+    enabled: true

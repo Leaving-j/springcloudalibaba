@@ -20,5 +20,4 @@ public class LoadBalanceConfig {
         return new RestTemplate();
     }
 
-
 }

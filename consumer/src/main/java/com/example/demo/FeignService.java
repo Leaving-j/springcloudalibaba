@@ -13,9 +13,8 @@ import java.util.Map;
  * @author: lw
  * @create: 2020-12-23 14:31
  **/
-@FeignClient("service-provider")
-@RequestMapping("/provider")
+@FeignClient(name = "service-provider", fallback = FeignServiceFallBack.class,configuration = FeignConfiguration.class)
 public interface FeignService {
-    @GetMapping("/info/{id}")
+    @GetMapping("/provider/info/{id}")
     Map<String, String> getInfo(@PathVariable("id") String id);
 }
